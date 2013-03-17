@@ -36,11 +36,10 @@ public class TuningManager
 
         receivingConnection = new LocalConnection();
         receivingConnection.allowDomain("*");
-        receivingConnection.connect("by.vaukalak.tuning-client");
+        receivingConnection.connect(time);
         receivingConnection.client = {
             "update":function(host:String, name:String, value:*):void
             {
-                trace(host);
                 _provider.updateProperty(host, name, value);
             }
         }
